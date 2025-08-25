@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin's Space</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+
+        <!--The nav bar of the website-->
+<nav class="nav-bar">
+    <img src="{% static 'images/justinlogo.jpg' %}" alt="" class="logo">
+    <ul class="center-nav">
+        <a href="{% url 'home' %}" class="nav-link"><h5>Home</h5></a>
+        <a href="{% url 'home' %}#about-us" class="nav-link"><h5>About me</h5></a>
+        <a href="{% url 'home' %}#posts" class="nav-link"><h5>My posts</h5></a>
+        <a href="https://paystack.shop/pay/3mgqf0jtri" class="nav-link"><h5>Donate</h5></a>
+    </ul>
+    <!-- Added menu toggle button -->
+    <button class="menu-toggle" aria-label="Menu">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+    </button>
+</nav>
+
+<!-- Added side menu (place before closing body tag) -->
+<div class="side-menu">
+    <div class="side-menu-content">
+        <a href="{% url 'home' %}" class="nav-link"><h5>Home</h5></a>
+        <a href="{% url 'home' %}#about-us" class="nav-link"><h5>About me</h5></a>
+        <a href="{% url 'home' %}#posts" class="nav-link"><h5>My posts</h5></a>
+        <a href="https://paystack.shop/pay/3mgqf0jtri" class="nav-link"><h5>Donate</h5></a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--THE BANNER FOR THE HOME PAGE BEGINS-->
+<section class="banner_bdy">
+    <div class="banner" style="background-image:  linear-gradient(
+        to top, 
+        black, 
+        rgba(0, 0, 0, 0.183)
+    ), url('{% static 'images/bannerimg.jpeg' %}'); ">
+        <div class="banner-disc">
+            <h1 class="post-head-title">
+                <span class="banner_disc_change_color">JUSTIN'S</span> <br>
+                SPACE
+            </h1>
+            <a href="{% url 'home' %}#about-us" class="view-more"><h5>View more</h5></a>
+        </div>
+        <div class="fireflies"></div>
+    </div>            
+</section>
+<!--THE BANNER FOR THE HOME PAGE ENDS-->
+
+
+
+
+
+
+
+
+
+<!--THE ABOUT US SECTION FOR THE WEBSITE-->
+<section id="about-us">
+
+        <img src="{% static 'images/justinaboutimg.jpg' %}" alt="" class="about-img">
+
+
+    <div class="about-disc">
+
+        <div class="about_head">
+            <h2 class="about-head">
+                ABOUT ME
+            </h2>
+        </div>
+        
+        <h5 class="about-more">
+                    I am Justin Ugochukwu Nnamene — a writer, poet and thinker, journeying through life with ink-stained hands and a heart tuned to the rhythms of faith, truth, and human complexity.
+                    My works are more than writings; they are echoes of silence, musings of identity, and portraits of the ordinary soul in its most sacred moments. I am firm believer in the power of words, I use mine to reflect not just beauty or pain, but the in-betweens — the overlooked, the misread, the misunderstood.
+                    This space is a sanctuary for those who feel deeply, ask boldly, and walk gently through the world.
+                    Welcome!
+        </h5>
+        <a href="{% url 'posts' %}" class="about-btn"><h5>Check posts</h5></a>
+    </div>
+</section>
+<!--THE ABOUT US SECTION FOR THE WEBSITE ENDS-->
+
+
+
+
+
+
+
+
+<!--THE POSTS SECTION FOR THE WEBSITE-->
+<section id="posts">
+    <div class="posts-disc">
+
+        <div class="post_head">
+            <h2 class="post-head">
+                LATEST POSTS
+            </h2>
+        </div>
+        
+
+
+
+        <!--for the posts-->
+
+        <div class="post-container">
+            <div class="post-boxes">
+                
+
+                    <div class="recent-post">
+                            <img src="{{ post1.image_head.url }}" alt="" class="recent_post_img">
+                        <div class="recent-post-texts">
+                            <h3 class="recent-post-head"><a href="{% url 'post_single' post1.slug %}" class="recent_post_head_link">{{ post1.post_title }}</a></h3>
+                            <h5 class="recent-post-content">{{ post1.post_content|safe|truncatewords:15 }}</h5>
+                        </div>
+                    </div>
+
+
+                    <div class="recent-post">
+                        <img src="{{ post2.image_head.url }}" alt="" class="recent_post_img">
+                    <div class="recent-post-texts">
+                        <h3 class="recent-post-head"><a href="{% url 'post_single' post2.slug %}" class="recent_post_head_link">{{ post2.post_title }}</a></h3>
+                        <h5 class="recent-post-content">{{ post2.post_content|safe|truncatewords:15 }}</h5>
+                    </div>
+                </div>
+                
+
+
+                    <div class="recent-post">
+                        <img src="{{ post3.image_head.url }}" alt="" class="recent_post_img">
+                    <div class="recent-post-texts">
+                        <h3 class="recent-post-head"><a href="{% url 'post_single' post3.slug %}" class="recent_post_head_link">{{ post3.post_title }}</a></h3>
+                        <h5 class="recent-post-content">{{ post3.post_content|safe|truncatewords:15 }}</h5>
+                    </div>
+                </div>
+
+
+                    <div class="recent-post">
+                        <img src="{{ post4.image_head.url }}" alt="" class="recent_post_img">
+                    <div class="recent-post-texts">
+                        <h3 class="recent-post-head"><a href="{% url 'post_single' post4.slug %}" class="recent_post_head_link">{{ post4.post_title }}</a></h3>
+                        <h5 class="recent-post-content">{{ post4.post_content|safe|truncatewords:15 }}</h5>
+                    </div>
+                    </div>
+
+
+                
+
+
+            
+
+           
+            
+        </div>
+
+
+
+
+    </div>
+</section>
+<!--POST SECTION ENDS-->
+
+
+
+
+
+
+
+
+
+<!--Contact starts-->
+
+
+            <div id="links">
+
+                <h2 class="About-subj">CONNECT WITH ME</h2>
+
+                <div class="link-box">
+
+                    <div class="link1">
+
+                        <i class="fa-brands fa-facebook"></i>
+                        <p class="link-disc"><a href="https://www.facebook.com/profile.php?id=61579586338024">Facebook</a></p>
+
+                    </div>
+
+
+
+                    <div class="link1">
+
+                        <i class="fa-brands fa-instagram-square"></i>
+                        <p class="link-disc"><a href="https://www.instagram.com/justins_spacee/?igsh=Yjdubmt5YWY1OGp2#">Instagram</a></p>
+
+                    </div>
+
+
+                    <div class="link1">
+
+                        <i class="fa-solid fa-square-envelope"></i>
+                        <p class="link-disc"><a href="mailto:justinugochukwu843@gmail.com">Email</a></p>
+
+                    </div>
+
+
+                    <div class="link1">
+
+                        <i class="fa-brands fa-square-whatsapp"></i>
+                        <p class="link-disc"><a href="https://wa.me/2347070090332">Whatsapp</a></p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--Contact ends-->
+
+
+
+
+
+
+
+
+
+
+
+<!--THE FOOTER BEGINS-->
+
+
+<footer>
+
+
+    <h4 class="footer-text">Copyright © <span class="footer-change">Justin's Space 2025</span></h4>
+
+
+</footer>
+
+
+<!--THE FOOTER ENDS-->
+
+
+
+
+
+<!--THE SCRIPTS FOR THE WEBSITE-->
+
+
+<!--Side menu functionality-->
+<script>
+
+
+// Side menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideMenu = document.querySelector('.side-menu');
+    const body = document.body;
+    
+    menuToggle.addEventListener('click', function() {
+        sideMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    });
+    
+    // Close menu when clicking on overlay
+    body.addEventListener('click', function(e) {
+        if (body.classList.contains('menu-open') && 
+            !sideMenu.contains(e.target) && 
+            e.target !== menuToggle && 
+            !menuToggle.contains(e.target)) {
+            sideMenu.classList.remove('active');
+            body.classList.remove('menu-open');
+        }
+    });
+});
+
+
+</script>
+
+
+
+<!--The bubble animation-->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const firefliesContainer = document.querySelector(".fireflies");
+
+    function createFirefly() {
+        const firefly = document.createElement("span");
+        firefly.classList.add("firefly");
+
+        // Random start position
+        firefly.style.left = Math.random() * 100 + "%";
+        firefly.style.bottom = Math.random() * 50 + "px";
+
+        // Random size
+        const size = Math.random() * 6 + 4 + "px";
+        firefly.style.width = size;
+        firefly.style.height = size;
+
+        // Random animation delay and duration
+        firefly.style.animationDelay = `${Math.random() * 5}s, ${Math.random() * 2}s`;
+        firefly.style.animationDuration = `${Math.random() * 8 + 6}s, 2s`;
+
+        firefliesContainer.appendChild(firefly);
+
+        // Remove firefly after animation loop
+        setTimeout(() => {
+            firefly.remove();
+        }, 12000);
+    }
+
+    // Create multiple fireflies
+    setInterval(createFirefly, 500);
+});
+</script>
+
+
+
+
+</body>
+</html>
